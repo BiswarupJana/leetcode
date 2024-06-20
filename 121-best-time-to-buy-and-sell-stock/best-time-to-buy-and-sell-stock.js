@@ -3,18 +3,16 @@
  * @return {number}
  */
 const maxProfit = (prices) => {
-  let left = 0; // Buy
-  let right = 1; // sell
-  let max_profit = 0;
-  while (right < prices.length) {
-    if (prices[left] < prices[right]) {
-      let profit = prices[right] - prices[left]; // our current profit
-
-      max_profit = Math.max(max_profit, profit);
-    } else {
-      left = right;
+  let l=0, r=1, max_pf=0;
+    while(r<prices.length){
+        if(prices[r]>prices[l]){
+            let pf= prices[r]-prices[l]
+            max_pf= Math.max(max_pf, pf)
+        }else{
+            l=r
+        }
+        r++
     }
-    right++;
-  }
-  return max_profit;
+    return max_pf
+    
 };
